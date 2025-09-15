@@ -20,4 +20,4 @@
 ---
 include:
   - board: seeeduino_xiao_rp2040
-    shield: two_percent_milk
+    shield: danbooru_key

@@ -1,0 +1,6 @@
+if SHIELD_DANBOORU_KEY
+
+config ZMK_KEYBOARD_NAME
+  default "danbooru_key"
+
+endif
