@@ -9,6 +9,6 @@
 
     input-gpios =  
       <&pro_mirco 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
-      <&pro_mirco 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+      <&pro_mirco 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
   };
 };
