@@ -9,8 +9,8 @@
         default_layer {
             display-name = "Default Layer";
             bindings = <
-                &kp COMMA
-                &kp PERIOD
+                &kp Z
+                &kp X
             >;
         };
     };
