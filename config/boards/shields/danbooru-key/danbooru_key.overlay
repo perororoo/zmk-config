@@ -69,7 +69,7 @@
     led_strip: ws2812 {
       status = "okay";
       gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
-      chain-length = <1>;
+      chain-length = <2>;
       color-mapping = <LED_COLOR_ID_GREEN
                         LED_COLOR_ID_RED
                         LED_COLOR_ID_BLUE>;
