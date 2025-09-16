@@ -41,7 +41,7 @@
 &pinctrl {
   ws2812_pio0_default: ws2812_pio0_default {
     group1 {
-      pinmux = <PIO0_P11>, <PIO1_P12>;
+      pinmux = <PIO0_P12>;
     };
   };
 };
