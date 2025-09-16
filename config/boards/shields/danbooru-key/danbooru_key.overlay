@@ -1,10 +1,13 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
+#include <dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
+#include <dt-bindings/led/led.h>
 
 / {
   chosen {
     zmk,kscan = &default_kscan;
     zmk,physical-layout = &physical_layout0;
+    zmk,underglow = &led_strip;
   };
 
   physical_layout0: physical_layout_0 {
@@ -33,4 +36,46 @@
       <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
       <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   };
+
+  &pinctrl {
+    ws2812_pio0_default: ws2812_pio0_default {
+      group1 {
+        pinmux = <PIO0_P12>;
+      };
+    };
+  };
+
+  &gpio0 {
+    status = "okay";
+    neopixel-power-enable {
+      gpio-hog;
+      gpios = <11 GPIO_ACTIVE_HIGH>;
+      output-high;
+    };
+  };
+
+  &pio0 {
+    status = "okay";
+
+    pio-ws2812: pio-ws2812 {
+      pinctrl-0 = <&ws2812_pio0_default>;
+      pinctrl-names = "default";
+
+      compatible = "worldsemi,ws2812-rpi_pico-pio";
+      status = "okay";
+      bit-waveform = <3>, <3>, <4>;
+
+      led_strip: ws2812 {
+        status = "okay";
+        gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+        chain-length = <1>;
+        color-mapping = <LED_COLOR_ID_GREEN
+                          LED_COLOR_ID_RED
+                          LED_COLOR_ID_BLUE>;
+        reset-delay = <280>;
+        frequency = <800000>;
+      };
+    };
+  };
+
 };
