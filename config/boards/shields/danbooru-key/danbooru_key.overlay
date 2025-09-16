@@ -1,11 +1,19 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
-#include <danbooru_key-layouts.dtsi>
 
 / {
   chosen {
     zmk,kscan = &default_kscan;
     zmk,physical-layout = &physical_layout0;
+  };
+
+  physical_layout0: physical_layout_0 {
+    compatible = "zmk,physical-layout";
+    display-name = "osu! keypad layout";
+    keys  //                       w   h    x      y       rot    rx    ry
+            = <&key_physical_attrs 100 100    0    0       0     0     0>
+            , <&key_physical_attrs 100 100  100    0       0     0     0>
+            ;
   };
 
   default_kscan: kscan {
