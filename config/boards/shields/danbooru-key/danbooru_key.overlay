@@ -1,6 +1,9 @@
+#include "danbooru_key-layouts.dtsi"
+
 / {
   chosen {
     zmk,kscan = &default_kscan;
+    zmk,physical-layout = &physical_layout0;
   };
 
   default_kscan: kscan {
