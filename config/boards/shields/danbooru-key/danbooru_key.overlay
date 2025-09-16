@@ -8,10 +8,15 @@
 
   default_kscan: kscan {
     compatible = "zmk,kscan-gpio-direct";
-    label = "default_kscan";
+    label = "default_kscan";  
 
     input-gpios =  
       <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
       <&xiao_d 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   };
+
+  &physical_layout0 {
+    kscan = <&kscan0>; // Label of the kscan node this layout uses
+    transform = <&default_transform>; // Label of the matrix transform this layout uses
+};
 };
