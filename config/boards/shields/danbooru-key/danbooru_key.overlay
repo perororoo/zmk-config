@@ -58,7 +58,7 @@
 &pio0 {
   status = "okay";
 
-  pio-ws2812: pio-ws2812 {
+  pio-ws2812 {
     pinctrl-0 = <&ws2812_pio0_default>;
     pinctrl-names = "default";
 
